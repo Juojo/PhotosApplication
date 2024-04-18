@@ -1,5 +1,7 @@
 package com.example.photos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.validation.constraints.NotEmpty;
 
 public class Photo {
@@ -8,13 +10,21 @@ public class Photo {
 	@NotEmpty
 	private String fileName;
 	
+	@JsonIgnore
+	private byte[] data;
+	
 	public Photo() {
 		
 	}
 	
-	public Photo(String id, String fileName) {
+	public Photo(String id, String fileName, byte[] data) {
 		this.id = id;
 		this.fileName = fileName;
+		this.data = data;
+	}
+	
+	public byte[] getData() {
+		return data;
 	}
 
 	public String getId() {
