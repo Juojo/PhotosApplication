@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class PhotosService {
 
 	private Map<String, Photo> db = new HashMap<>() {{
-		put("1", new Photo("1", "photo.png", null));
+		put("1", new Photo("1", "photo", ".png", null));
 	}};
 
 	
@@ -27,8 +27,8 @@ public class PhotosService {
 		return db.remove(id);
 	}
 	
-	public Photo save(String fileName, byte[] data) {
-		Photo photo = new Photo(UUID.randomUUID().toString(), fileName, data);
+	public Photo save(String fileName, String contentType, byte[] data) {
+		Photo photo = new Photo(UUID.randomUUID().toString(), fileName, contentType, data);
 		db.put(photo.getId(), photo);
 		return photo;
 	}}
