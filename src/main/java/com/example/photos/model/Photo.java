@@ -1,4 +1,4 @@
-package com.example.photos;
+package com.example.photos.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
